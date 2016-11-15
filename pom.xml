@@ -1,0 +1,37 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>convert-xsd-to-java-class</groupId>
+  <artifactId>convert-xsd-to-java-class</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                   <!-- The name of your generated source package -->
+                    <arguments>-extension -npa -b ${project.basedir}/src/main/xsd/global.xjb</arguments> 
+                    <generateDirectory>target/generated-sources/xjc/workflow</generateDirectory>
+                    <generatePackage>com.xsd.xml</generatePackage>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
