@@ -5,9 +5,25 @@
 
 	<jaxb:globalBindings>
 		<xjc:simple />
-		<xjc:serializable uid="-1" />
-		<jaxb:javaType name="java.util.Calendar" xmlType="xs:dateTime"
+		<xjc:serializable uid="1" />
+		<!-- <jaxb:javaType name="java.util.Calendar" xmlType="xs:dateTime"
 			parseMethod="javax.xml.bind.DatatypeConverter.parseDateTime"
-			printMethod="javax.xml.bind.DatatypeConverter.printDateTime" />
+			printMethod="javax.xml.bind.DatatypeConverter.printDateTime" /> -->
+		<jaxb:javaType name="java.time.ZonedDateTime" xmlType="xs:dateTime"
+			parseMethod="parse"
+			printMethod="toString" />
+			
+		<jaxb:javaType name="java.time.LocalDate" xmlType="xs:date"
+            parseMethod="parse"
+            printMethod="toString" />
+		
+		<jaxb:javaType name="java.time.Year" xmlType="xs:gYear"
+            parseMethod="parse"
+            printMethod="toString" />
+		
+		<jaxb:javaType name="java.time.YearMonth" xmlType="xs:gYearMonth"
+            parseMethod="parse"
+            printMethod="toString" />
+		
 	</jaxb:globalBindings>
 </jaxb:bindings>
